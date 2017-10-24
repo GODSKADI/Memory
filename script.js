@@ -28,18 +28,15 @@ function turnCount(){
 function blockCart(c){
 	document.getElementById("cart"+c+"").removeAttribute("onclick");
 }
-//funcion que añade sonido cuando se hace click
-function repSound(){
-	var sonido = document.getElementById(?);
-	sonido.play("sounds/sound.mp3"); //falta entender un par de cosas lo (?)
-}
 //funcion que llama a otras funciones y hace comprobacion
 function girar(c){
+	document.getElementById("giro").play();
 	if (ids.length == 0){
 		frontCart(c);
 		saveIds(c);
 		var divElement = document.getElementById("cart"+c+"").childNodes[1].childNodes[0].getAttribute('src');
-		cartas.push(""+divElement+"");	
+		cartas.push(""+divElement+"");
+
 	}
 	else if (ids.length == 1){
 		frontCart(c);
@@ -49,6 +46,10 @@ function girar(c){
 		if (cartas[0] == cartas[1]){
 			turnCount();
 			countCart++;
+			var blockid1 = ids[0];
+			var blockid2 = ids[1];
+			blockCart(blockid1);
+			blockCart(blockid2);
 		}
 		else{
 			var id1 = ids[0];
@@ -58,6 +59,6 @@ function girar(c){
             turnCount();
 		}
 		cartas = [];
-		ids = [];
+		ids = [];	
 	}
 }

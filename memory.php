@@ -12,6 +12,9 @@
       <header>
         <h1>SKADI'S MEMORY</h1>
       </header>
+      <audio id="giro">
+        <source src="sounds/giro.mp3" type="audio/mpg">
+      </audio>
       <article>
         <?php
           //variables
