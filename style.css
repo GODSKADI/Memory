@@ -6,12 +6,13 @@
 }
 body{
     position: static;
-    background-color: white;
+    background-color: silver;
 }
 .container{
     border-radius: 5px;
     border: 1px solid black;
-	height: 550px;
+    background-color: black;
+	height: auto;
 	width: 1000px;
     margin-top: 30px;
 	margin-right: auto;
@@ -19,6 +20,7 @@ body{
     padding: 8px;
 }
 header{
+    background-color: pink;
     border-radius: 5px;
     border: 1px solid black;
     text-align: center;
@@ -28,6 +30,7 @@ header{
     line-height: 50px;
 }
 article{
+    background-color: pink;
     border-radius: 5px;
     border: 1px solid black;
     color:black;
@@ -38,19 +41,20 @@ article{
     align-content: center;
 }
 footer{
+    background-color: pink;
     border: 1px solid black;
     border-radius: 5px;
     text-align: center;
-    color:black;
+    color: black;
     margin-top: 10px;
 }
 button{
-    border-radius: 5px;
-    background-color: rebeccapurple;
+    border-radius: 2px;
+    background-color: black;
     color: white;
-    min-height: 40px;
+    min-height: 25px;
     height: auto;
-    min-width: 80px;
+    min-width: 40px;
     width: auto;
 }
 .divTabla{

@@ -13,13 +13,30 @@
         <h1>SKADI'S MEMORY</h1>
       </header>
       <audio id="giro">
-        <source src="sounds/giro.mp3" type="audio/mpg">
+        <source src="sounds/giro.mp3" type="audio/mp3">
+      </audio>
+      <audio id="good">
+        <source src="sounds/correcto.mp3" type="audio/mp3">
+      </audio>
+      <audio id="bad">
+        <source src="sounds/error.mp3" type="audio/mp3">
       </audio>
       <article>
         <?php
           //variables
-          $filas = 2;
-          $columnas = 3;
+          $dim = $_POST['dificultad'];
+          if ($dim === '4x4'){
+            $filas = 4;
+            $columnas = 4;
+          }
+          else if ($dim === '6x6'){
+            $filas = 6;
+            $columnas = 6;
+          }
+          else{
+            $filas = 8;
+            $columnas = 8;
+          }
           //listas
           $numRepetidos = array();
           $totalCeldas = ($filas * $columnas / 2);
@@ -51,7 +68,9 @@
           }
           echo "</table>";
           echo "</div>";
+          echo "<button type='submit' onclick='help(".$c.")'>Help</button>"
         ?>
+        <!--<button type='submit' onclick='prueba()'>prueba</button>-->
       </article>
       <footer>
         <h6>Copyright © 2017 SAKDI'S Project, Memory.</h6>
