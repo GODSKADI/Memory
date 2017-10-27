@@ -59,54 +59,28 @@ function flipHelp(c){
 	}
 }
 //funcion cronometro
-/*function clock(c){
-	var hundredths = 0;
-	var seconds = 0;
-	var minutes = 0;
-	var hours = 0;
-	function clockStart(c){
-		control = setInterval(chronometer, 10);
-		document.getElementById("cart"+c+"").disabled = true;
-	}
-	function clockStop(c){
-		clearInterval(control);
-		document.getElementById("cart"+c+"").disabled = true;
-	}
-	function chronometer(){
-		if(hundredths < 99){
-			hundredths++;
-			if (hundredths < 10){hundredths = "0" + hundredths}
-			hundredths.innerHTML = ":" + hundredths;
+function clock(){
+	secondsCount = 0;
+	minutesCount = 0;
+	seconds = document.getElementById("seconds");
+	minutes = document.getElementById("minutes");
+
+	chrono = setInterval(function(){
+		if(secondsCount == 60){
+			secondsCount = 0;
+			minutesCount++;
+			minutes.innerHTML = minutesCount;
+			if(minutesCount == 60){
+				minutesCount = 0;
+			}
 		}
-		if(hundredths == 99){
-			hundredths = -1;
-		}
-		if(hundredths == 0){
-			seconds ++;
-			if(seconds < 10 ){seconds = "0" + seconds}
-			seconds.innerHTML = ":" + seconds;
-		}
-		if(seconds == 59){
-			seconds = -1;
-		}
-		if ((hundredths == 0) && (seconds == 0)){
-			minutes ++;
-			if (minutes < 10){minutes = "0" + minutes}
-			minutes.innerHTML = ":" + minutes;	
-		}
-		if (minutes == 59){
-			minutes = -1;
-		}
-		if ((hundredths == 0) && (seconds == 0) && (minutes == 0)){
-			hours ++;
-			if (hours < 10){hours = "0" + hours}
-			hours.innerHTML = hours;
-		}
-	}
-}*/
+		seconds.innerHTML = secondsCount;
+		secondsCount++;
+	},1000)
+}
 //funcion que llama a otras funciones y hace comprobacion
 function girar(c, totalCeldas){
-	//clock(c);
+	clock();
 	document.getElementById("giro").play();
 	if (ids.length == 0){
 		frontCart(c);

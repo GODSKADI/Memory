@@ -71,12 +71,8 @@
           echo "<button type='submit' onclick='help(".$c.")'>Help</button>"
         ?>
         <button type='submit' onclick=" location.href='inicio.html'">Atras</button>
-        <div id="cronometro">
-          <div class="reloj" id="hours">00</div>
-          <div class="reloj" id="minutes">:00</div>
-          <div class="reloj" id="seconds">:00</div>
-          <div class="reloj" id="hundredths">:00</div>
-        </div>
+        <span id="minutes">0</span>:<span id="seconds">0</span>
+
       </article>
       <footer>
         <h6>Copyright © 2017 SAKDI'S Project, Memory.</h6>
