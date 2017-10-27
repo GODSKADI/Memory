@@ -19,6 +19,18 @@ body{
 	margin-left: auto;
     padding: 8px;
 }
+#cronometro{
+	margin: 0 auto;
+	width: 540px;
+	height: 115px;
+	text-align: center;
+}
+.reloj{
+	float: left;
+	font-size: 30px;
+	font-family: Courier,Arial;
+	color: black;
+}
 header{
     background-color: pink;
     border-radius: 5px;

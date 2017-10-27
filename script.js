@@ -29,50 +29,91 @@ function blockCart(c){
 	document.getElementById("cart"+c+"").removeAttribute("onclick");
 }
 //funcion de la ayuda cuando se pulse el boton giraran las cartas
-function help(c){
-	alert(c);
-	var hint = document.getElementsByClassName("cart");
-	while(hint.length > 0){
-			hint[0].className = "activeCart";
-			}
+function help(c,countCart){
+	countCart++;
 	var i = 0;
 	while (i < c){
-		var name = document.getElementById("cart"+i+"").className;
-		if (name != "activeCart"){
-			setTimeout(function(){flipHelp();}, 2000);
+		var hint = document.getElementById("cart"+i+"").className;
+		if (hint != "activeCart"){
+			frontCart(i);
 		}
-		else{
+		i++;
+	}
+	setTimeout(function(){flipHelp(c);}, 3000);
+}
+//function de la ayuda cuando se pulse el boton... timer para dar la buelta.
+function flipHelp(c){
+	var i = 0;
+	while (i < c){
+		var hint = document.getElementById("cart"+i+"").getAttribute("onclick");
+		if (hint != null ){
+			backCart(i);
 		}
 		i++;
 	}
 }
-//function de la ayuda cuando se pulse el boton... timer para dar la buelta.
-function flipHelp(){
-	var hint = document.getElementsByClassName("activeCart");
-	while(hint.length > 0){
-		hint[0].className = "cart";
+//funcion cronometro
+/*function clock(c){
+	var hundredths = 0;
+	var seconds = 0;
+	var minutes = 0;
+	var hours = 0;
+	function clockStart(c){
+		control = setInterval(chronometer, 10);
+		document.getElementById("cart"+c+"").disabled = true;
 	}
-}
-/*function prueba(c){
-	var name = document.getElementById("cart"+c+"").className;
-	alert(name);
+	function clockStop(c){
+		clearInterval(control);
+		document.getElementById("cart"+c+"").disabled = true;
+	}
+	function chronometer(){
+		if(hundredths < 99){
+			hundredths++;
+			if (hundredths < 10){hundredths = "0" + hundredths}
+			hundredths.innerHTML = ":" + hundredths;
+		}
+		if(hundredths == 99){
+			hundredths = -1;
+		}
+		if(hundredths == 0){
+			seconds ++;
+			if(seconds < 10 ){seconds = "0" + seconds}
+			seconds.innerHTML = ":" + seconds;
+		}
+		if(seconds == 59){
+			seconds = -1;
+		}
+		if ((hundredths == 0) && (seconds == 0)){
+			minutes ++;
+			if (minutes < 10){minutes = "0" + minutes}
+			minutes.innerHTML = ":" + minutes;	
+		}
+		if (minutes == 59){
+			minutes = -1;
+		}
+		if ((hundredths == 0) && (seconds == 0) && (minutes == 0)){
+			hours ++;
+			if (hours < 10){hours = "0" + hours}
+			hours.innerHTML = hours;
+		}
+	}
 }*/
-
 //funcion que llama a otras funciones y hace comprobacion
-function girar(c){
+function girar(c, totalCeldas){
+	clock(c);
 	document.getElementById("giro").play();
 	if (ids.length == 0){
 		frontCart(c);
 		saveIds(c);
 		var divElement = document.getElementById("cart"+c+"").childNodes[1].childNodes[0].getAttribute('src');
-		cartas.push(""+divElement+"");
+		carts.push(""+divElement+"");
 
 	}
 	else if (ids.length == 1){
 		frontCart(c);
 		saveIds(c);
 		var divElement = document.getElementById("cart"+c+"").childNodes[1].childNodes[0].getAttribute('src');
-		cartas.push(""+divElement+"");
+		carts.push(""+divElement+"");
 		if (carts[0] == carts[1]){
 			document.getElementById("good").play();
 			turnCount();
@@ -92,5 +133,8 @@ function girar(c){
 		}
 		carts = [];
 		ids = [];	
+	}
+	if (countCart == totalCeldas){
+		alert("Good 4 you");
 	}
 }

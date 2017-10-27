@@ -58,7 +58,7 @@
             echo "<tr>";
             for ($o = 0;$o < $columnas;$o++){
               echo "<td>"; 
-              echo "<div id='cart".$c."' class='cart' onclick='girar(".$c.")'>";
+              echo "<div id='cart".$c."' class='cart' onclick='girar(".$c.",".$totalCeldas.")'>";
                 echo "<div class='side front'><img src='imagenes/back.png'/></div>";
                 echo "<div class='side back'><img src='imagenes/png".$numRepetidos[$c++].".png'/></div>";
               echo "</div>";
@@ -70,7 +70,13 @@
           echo "</div>";
           echo "<button type='submit' onclick='help(".$c.")'>Help</button>"
         ?>
-        <!--<button type='submit' onclick='prueba()'>prueba</button>-->
+        <button type='submit' onclick=" location.href='inicio.html'">Atras</button>
+        <div id="cronometro">
+          <div class="reloj" id="hours">00</div>
+          <div class="reloj" id="minutes">:00</div>
+          <div class="reloj" id="seconds">:00</div>
+          <div class="reloj" id="hundredths">:00</div>
+        </div>
       </article>
       <footer>
         <h6>Copyright © 2017 SAKDI'S Project, Memory.</h6>
