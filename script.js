@@ -29,17 +29,23 @@ function blockCart(c){
 	document.getElementById("cart"+c+"").removeAttribute("onclick");
 }
 //funcion de la ayuda cuando se pulse el boton giraran las cartas
-function help(c,countCart){
-	countCart++;
-	var i = 0;
-	while (i < c){
-		var hint = document.getElementById("cart"+i+"").className;
-		if (hint != "activeCart"){
-			frontCart(i);
+var helpCount = 0;
+
+function help(c){
+	if(helpCount < 3){
+		countCart = countCart + 5;
+		document.getElementById("count").innerHTML = countCart;
+		var i = 0;
+		while (i < c){
+			var hint = document.getElementById("cart"+i+"").className;
+			if (hint != "activeCart"){
+				frontCart(i);
+			}
+			i++;
 		}
-		i++;
+		setTimeout(function(){flipHelp(c);}, 3000);
+		helpCount++;
 	}
-	setTimeout(function(){flipHelp(c);}, 3000);
 }
 //function de la ayuda cuando se pulse el boton... timer para dar la buelta.
 function flipHelp(c){
@@ -100,7 +106,7 @@ function flipHelp(c){
 }*/
 //funcion que llama a otras funciones y hace comprobacion
 function girar(c, totalCeldas){
-	clock(c);
+	//clock(c);
 	document.getElementById("giro").play();
 	if (ids.length == 0){
 		frontCart(c);
