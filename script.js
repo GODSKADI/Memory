@@ -79,12 +79,11 @@ function clock(){
 	},1000)
 }
 //funcion que llama a otras funciones y hace comprobacion
-var onlionce = 0;
+var onlyonce = 0;
 function girar(c, totalCeldas){
-	if (onlionce == 0){
-		alert("ha entrado")
+	if (onlyonce == 0){
 		clock();
-		onlionce++;
+		onlyonce++;
 	}
 	document.getElementById("giro").play();
 	if (ids.length == 0){
